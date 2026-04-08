@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { IonButton, IonHeader, IonInput, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
 
 @Component({
@@ -12,9 +13,9 @@ export class HomePage {
   
   searchTerm: string = '';
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   search() {
-    console.log(this.searchTerm);
+    this.router.navigate(['/results', this.searchTerm]);
   }
 }
