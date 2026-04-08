@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 
 @Component({
@@ -12,9 +13,15 @@ import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/stan
 })
 export class ResultsPage implements OnInit {
 
-  constructor() { }
+  ingredient: string = '';
+
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.ingredient = this.route.snapshot.params['ingredient'];
+
+    console.log(this.ingredient);
   }
 
 }
