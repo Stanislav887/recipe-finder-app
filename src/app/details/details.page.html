@@ -1,0 +1,18 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>{{ meal?.strMeal }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <img [src]="meal?.strMealThumb" />
+
+  <h2>{{ meal?.strMeal }}</h2>
+
+  <p><strong>Category:</strong> {{ meal?.strCategory }}</p>
+  <p><strong>Area:</strong> {{ meal?.strArea }}</p>
+
+  <p>{{ meal?.strInstructions }}</p>
+
+</ion-content>

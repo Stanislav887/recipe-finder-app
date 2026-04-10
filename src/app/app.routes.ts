@@ -26,4 +26,8 @@ export const routes: Routes = [
     path: 'seafood',
     loadComponent: () => import('./seafood/seafood.page').then( m => m.SeafoodPage)
   },
+  {
+    path: 'details/:id',
+    loadComponent: () => import('./details/details.page').then( m => m.DetailsPage)
+  },
 ];
