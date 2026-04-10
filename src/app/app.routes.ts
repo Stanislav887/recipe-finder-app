@@ -14,4 +14,16 @@ export const routes: Routes = [
     path: 'results/:ingredient',
     loadComponent: () => import('./results/results.page').then( m => m.ResultsPage)
   },
+  {
+    path: 'chicken',
+    loadComponent: () => import('./chicken/chicken.page').then( m => m.ChickenPage)
+  },
+  {
+    path: 'beef',
+    loadComponent: () => import('./beef/beef.page').then( m => m.BeefPage)
+  },
+  {
+    path: 'seafood',
+    loadComponent: () => import('./seafood/seafood.page').then( m => m.SeafoodPage)
+  },
 ];

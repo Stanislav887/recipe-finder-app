@@ -13,13 +13,31 @@
     </ion-toolbar>
   </ion-header>
 
-<ion-input 
-  [(ngModel)]="searchTerm" 
-  placeholder="Enter ingredient">
-</ion-input>
+  <ion-input [(ngModel)]="searchTerm" placeholder="Enter ingredient">
+  </ion-input>
 
-<ion-button expand="full" (click)="search()">
-  Search Recipes
-</ion-button>
+  <ion-button expand="full" (click)="search()">
+    Search Recipes
+  </ion-button>
+
+  <br>
+
+  <ion-card button routerLink="/chicken">
+    <ion-card-header>
+      <ion-card-title>🍗 Chicken Recipes</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card button routerLink="/beef">
+    <ion-card-header>
+      <ion-card-title>🥩 Beef Recipes</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card button routerLink="/seafood">
+    <ion-card-header>
+      <ion-card-title>🐟 Seafood Recipes</ion-card-title>
+    </ion-card-header>
+  </ion-card>
 
 </ion-content>
