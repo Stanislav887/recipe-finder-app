@@ -19,16 +19,22 @@
 
     <ion-card-content>
 
-      <h3>
-        <ion-icon name="restaurant-outline" color="warning"></ion-icon>
-        Ingredients
-      </h3>
+      <ion-item button (click)="isIngredientsOpen = !isIngredientsOpen">
+        <ion-icon name="restaurant-outline" slot="start"></ion-icon>
 
-      <ion-list>
-        <ion-item *ngFor="let item of ingredients">
-          {{ item }}
-        </ion-item>
-      </ion-list>
+        <ion-label>Ingredients</ion-label>
+
+        <ion-icon slot="end" [name]="isIngredientsOpen ? 'chevron-up-outline' : 'chevron-down-outline'">
+        </ion-icon>
+      </ion-item>
+
+      <div *ngIf="isIngredientsOpen">
+        <ion-list>
+          <ion-item *ngFor="let item of ingredients">
+            {{ item }}
+          </ion-item>
+        </ion-list>
+      </div>
 
       <h3>
         <ion-icon name="list-outline" color="success"></ion-icon>

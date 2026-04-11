@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { IonList, IonItem, IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
-import { IonButton, IonIcon, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent } from '@ionic/angular/standalone';
+import { IonLabel, IonButton, IonIcon, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { restaurantOutline, listOutline } from 'ionicons/icons';
+import { restaurantOutline, listOutline, chevronUpOutline, chevronDownOutline } from 'ionicons/icons';
 
 
 
@@ -15,7 +15,7 @@ import { restaurantOutline, listOutline } from 'ionicons/icons';
   templateUrl: './details.page.html',
   styleUrls: ['./details.page.scss'],
   standalone: true,
-  imports: [IonButton, IonIcon, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonList, IonItem, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonLabel, IonButton, IonIcon, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonList, IonItem, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
 })
 export class DetailsPage implements OnInit {
 
@@ -23,13 +23,16 @@ export class DetailsPage implements OnInit {
   ingredients: any[] = [];
 
   isExpanded: boolean = false;
+  isIngredientsOpen: boolean = true;
   fullInstructions: string = '';
   shortInstructions: string = '';
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {
     addIcons({
       'restaurant-outline': restaurantOutline,
-      'list-outline': listOutline
+      'list-outline': listOutline,
+      'chevron-up-outline': chevronUpOutline,
+      'chevron-down-outline': chevronDownOutline
     });
   }
 
