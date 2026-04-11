@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { IonList, IonItem, IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
-import { IonIcon, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent } from '@ionic/angular/standalone';
+import { IonButton, IonIcon, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { restaurantOutline, listOutline } from 'ionicons/icons';
 
@@ -15,13 +15,16 @@ import { restaurantOutline, listOutline } from 'ionicons/icons';
   templateUrl: './details.page.html',
   styleUrls: ['./details.page.scss'],
   standalone: true,
-  imports: [IonIcon, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonList, IonItem, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonButton, IonIcon, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonList, IonItem, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
 })
 export class DetailsPage implements OnInit {
 
   meal: any;
-
   ingredients: any[] = [];
+
+  isExpanded: boolean = false;
+  fullInstructions: string = '';
+  shortInstructions: string = '';
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {
     addIcons({
@@ -46,6 +49,9 @@ export class DetailsPage implements OnInit {
           this.ingredients.push(meas + ' ' + ing);
         }
       }
+
+      this.fullInstructions = this.meal.strInstructions;
+      this.shortInstructions = this.meal.strInstructions.substring(0, 150);
     });
   }
 

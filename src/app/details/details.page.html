@@ -35,7 +35,15 @@
         Instructions
       </h3>
 
-      <p class="instructions-text">{{ meal?.strInstructions }}</p>
+      <p>
+        {{ isExpanded ? fullInstructions : shortInstructions }}
+        {{ !isExpanded ? '...' : '' }}
+      </p>
+
+      <ion-button fill="clear" size="small" (click)="isExpanded = !isExpanded">
+        {{ isExpanded ? 'Read less' : 'Read more' }}
+      </ion-button>
+
 
     </ion-card-content>
 
