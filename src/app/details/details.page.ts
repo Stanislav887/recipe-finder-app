@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { IonList, IonItem, IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
-import { IonLabel, IonButton, IonIcon, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent } from '@ionic/angular/standalone';
+import { IonButtons, IonBackButton, IonLabel, IonButton, IonIcon, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { restaurantOutline, listOutline, chevronUpOutline, chevronDownOutline } from 'ionicons/icons';
 
@@ -15,7 +15,7 @@ import { restaurantOutline, listOutline, chevronUpOutline, chevronDownOutline } 
   templateUrl: './details.page.html',
   styleUrls: ['./details.page.scss'],
   standalone: true,
-  imports: [IonLabel, IonButton, IonIcon, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonList, IonItem, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonButtons, IonBackButton, IonLabel, IonButton, IonIcon, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonList, IonItem, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
 })
 export class DetailsPage implements OnInit {
 
@@ -26,6 +26,8 @@ export class DetailsPage implements OnInit {
   isIngredientsOpen: boolean = true;
   fullInstructions: string = '';
   shortInstructions: string = '';
+
+  returnUrl: string = '/home';
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {
     addIcons({
@@ -38,6 +40,9 @@ export class DetailsPage implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.params['id'];
+
+    this.returnUrl =
+      this.route.snapshot.queryParamMap.get('returnUrl') || '/home';
 
     this.http.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`).subscribe((data: any) => {
       this.meal = data.meals[0];

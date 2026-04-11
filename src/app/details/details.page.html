@@ -1,5 +1,10 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="light">
+
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="returnUrl"></ion-back-button>
+    </ion-buttons>
+
     <ion-title>{{ meal?.strMeal }}</ion-title>
   </ion-toolbar>
 </ion-header>

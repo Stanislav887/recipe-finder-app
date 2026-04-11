@@ -26,7 +26,9 @@ export class ChickenPage implements OnInit {
   }
 
   openDetails(id: string) {
-    this.router.navigate(['/details', id]);
+    this.router.navigate(['/details', id], {
+      queryParams: { returnUrl: '/chicken' }
+    });
   }
 
 }
