@@ -8,6 +8,7 @@ ion-card {
     margin: 15px;
     border-radius: 15px;
     overflow: hidden;
+    border-top: 4px solid #3880ff;
 }
 
 h3 {
@@ -26,3 +27,8 @@ ion-item {
     font-size: 14px;
     color: #555;
 }
+
+ion-content {
+    --background: #959596;
+}
+

@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="light">
     <ion-title>{{ meal?.strMeal }}</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -12,7 +12,7 @@
 
     <ion-card-header>
       <ion-card-title>{{ meal?.strMeal }}</ion-card-title>
-      <ion-card-subtitle>
+      <ion-card-subtitle color="medium">
         {{ meal?.strCategory }} • {{ meal?.strArea }}
       </ion-card-subtitle>
     </ion-card-header>
@@ -20,7 +20,7 @@
     <ion-card-content>
 
       <h3>
-        <ion-icon name="restaurant-outline"></ion-icon>
+        <ion-icon name="restaurant-outline" color="warning"></ion-icon>
         Ingredients
       </h3>
 
@@ -31,7 +31,7 @@
       </ion-list>
 
       <h3>
-        <ion-icon name="list-outline"></ion-icon>
+        <ion-icon name="list-outline" color="success"></ion-icon>
         Instructions
       </h3>
 
