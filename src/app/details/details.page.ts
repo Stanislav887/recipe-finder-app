@@ -4,6 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { IonList, IonItem, IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { IonIcon, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent } from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import { restaurantOutline, listOutline } from 'ionicons/icons';
+
 
 
 @Component({
@@ -11,7 +15,7 @@ import { IonList, IonItem, IonContent, IonHeader, IonTitle, IonToolbar } from '@
   templateUrl: './details.page.html',
   styleUrls: ['./details.page.scss'],
   standalone: true,
-  imports: [IonList, IonItem, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonIcon, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonList, IonItem, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
 })
 export class DetailsPage implements OnInit {
 
@@ -19,7 +23,12 @@ export class DetailsPage implements OnInit {
 
   ingredients: any[] = [];
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) { }
+  constructor(private route: ActivatedRoute, private http: HttpClient) {
+    addIcons({
+      'restaurant-outline': restaurantOutline,
+      'list-outline': listOutline
+    });
+  }
 
   ngOnInit() {
     const id = this.route.snapshot.params['id'];

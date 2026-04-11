@@ -6,22 +6,40 @@
 
 <ion-content>
 
-  <img [src]="meal?.strMealThumb" />
+  <ion-card>
 
-  <h2>{{ meal?.strMeal }}</h2>
+    <img [src]="meal?.strMealThumb" />
 
-  <p><strong>Category:</strong> {{ meal?.strCategory }}</p>
-  <p><strong>Area:</strong> {{ meal?.strArea }}</p>
+    <ion-card-header>
+      <ion-card-title>{{ meal?.strMeal }}</ion-card-title>
+      <ion-card-subtitle>
+        {{ meal?.strCategory }} • {{ meal?.strArea }}
+      </ion-card-subtitle>
+    </ion-card-header>
 
-  <h3>Ingredients:</h3>
+    <ion-card-content>
 
-  <ion-list>
-    <ion-item *ngFor="let item of ingredients">
-      {{ item }}
-    </ion-item>
-  </ion-list>
+      <h3>
+        <ion-icon name="restaurant-outline"></ion-icon>
+        Ingredients
+      </h3>
 
-   <h3>Instructions</h3>
-  <p>{{ meal?.strInstructions }}</p>
+      <ion-list>
+        <ion-item *ngFor="let item of ingredients">
+          {{ item }}
+        </ion-item>
+      </ion-list>
+
+      <h3>
+        <ion-icon name="list-outline"></ion-icon>
+        Instructions
+      </h3>
+
+      <p>{{ meal?.strInstructions }}</p>
+
+    </ion-card-content>
+
+  </ion-card>
+
 
 </ion-content>
