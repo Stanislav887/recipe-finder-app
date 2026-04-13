@@ -66,4 +66,17 @@ export class DetailsPage implements OnInit {
     });
   }
 
+  async addToFavorites() {
+    let favorites = await this.storage.get('favorites');
+
+    if (!favorites) {
+      favorites = [];
+    }
+
+    if (!favorites.includes(this.meal.idMeal)) {
+      favorites.push(this.meal.idMeal);
+      await this.storage.set('favorites', favorites);
+    }
+  }
+
 }
