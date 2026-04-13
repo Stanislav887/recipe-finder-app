@@ -39,7 +39,9 @@ export class DetailsPage implements OnInit {
     });
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    await this.storage.create();
+
     const id = this.route.snapshot.params['id'];
 
     this.returnUrl =
