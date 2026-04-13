@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="light">
     <ion-title>
-      Recipe Finder
+      🍽 Recipe Finder
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -20,23 +20,39 @@
     Search Recipes
   </ion-button>
 
-  <br>
-
   <ion-card button routerLink="/chicken">
+
+    <img src="https://www.themealdb.com/images/category/chicken.png" />
+
     <ion-card-header>
       <ion-card-title>🍗 Chicken Recipes</ion-card-title>
+      <ion-card-subtitle color="medium">
+        Explore delicious chicken meals
+      </ion-card-subtitle>
     </ion-card-header>
   </ion-card>
 
   <ion-card button routerLink="/beef">
+
+    <img src="https://www.themealdb.com/images/category/beef.png" />
+
     <ion-card-header>
       <ion-card-title>🥩 Beef Recipes</ion-card-title>
+      <ion-card-subtitle color="medium">
+        Explore tasty beef dishes
+      </ion-card-subtitle>
     </ion-card-header>
   </ion-card>
 
   <ion-card button routerLink="/seafood">
+
+    <img src="https://www.themealdb.com/images/category/seafood.png" />
+
     <ion-card-header>
       <ion-card-title>🐟 Seafood Recipes</ion-card-title>
+      <ion-card-subtitle color="medium">
+        Explore fresh seafood meals
+      </ion-card-subtitle>
     </ion-card-header>
   </ion-card>
 

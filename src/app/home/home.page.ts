@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { IonCard, IonCardHeader, IonCardTitle, IonButton, IonHeader, IonInput, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
+import { IonCardSubtitle, IonCard, IonCardHeader, IonCardTitle, IonButton, IonHeader, IonInput, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
 import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [RouterLink, IonCard, IonCardHeader, IonCardTitle, IonButton, FormsModule, IonInput, IonHeader, IonToolbar, IonTitle, IonContent],
+  imports: [IonCardSubtitle, RouterLink, IonCard, IonCardHeader, IonCardTitle, IonButton, FormsModule, IonInput, IonHeader, IonToolbar, IonTitle, IonContent],
 })
 export class HomePage {
   

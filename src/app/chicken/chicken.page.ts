@@ -15,12 +15,14 @@ import { Router } from '@angular/router';
 export class ChickenPage implements OnInit {
 
   recipes: any[] = [];
+  loading: boolean = true;
 
   constructor(private recipeService: RecipeService, private router: Router) { }
 
   ngOnInit() {
     this.recipeService.getMealsByCategory('Chicken').subscribe((data: any) => {
       this.recipes = data.meals;
+      this.loading = false;
       console.log(this.recipes);
     });
   }
