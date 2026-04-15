@@ -4,9 +4,16 @@ import { RouteReuseStrategy, provideRouter, withPreloading, PreloadAllModules } 
 import { IonicRouteStrategy, provideIonicAngular } from '@ionic/angular/standalone';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { provideHttpClient } from '@angular/common/http';
-
 import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
+import { addIcons } from 'ionicons';
+import { homeOutline, heartOutline, settingsOutline } from 'ionicons/icons';
+
+addIcons({
+  'home-outline': homeOutline,
+  'heart-outline': heartOutline,
+  'settings-outline': settingsOutline
+});
 
 bootstrapApplication(AppComponent, {
   providers: [
