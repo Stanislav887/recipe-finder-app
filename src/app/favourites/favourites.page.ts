@@ -14,7 +14,7 @@ import { IonButton, IonButtons, IonBackButton, IonCard, IonCardTitle, IonCardHea
 })
 export class FavouritesPage implements OnInit {
 
-  favorites: any[] = [];
+  favourites: any[] = [];
 
   constructor(private storage: Storage, private recipeService: RecipeService) { }
 
@@ -23,13 +23,23 @@ export class FavouritesPage implements OnInit {
 
     const favoriteIds = await this.storage.get('favorites') || [];
 
-    this.favorites = [];
+    this.favourites = [];
 
     for (const id of favoriteIds) {
       this.recipeService.getMealById(id).subscribe((data: any) => {
-        this.favorites.push(data.meals[0]);
+        this.favourites.push(data.meals[0]);
       });
     }
+  }
+
+  async removeFromFavourites(id: string) {
+    let favouriteIds = await this.storage.get('favourites') || [];
+
+    favouriteIds = favouriteIds.filter((mealId: string) => mealId !== id);
+
+    await this.storage.set('favourites', favouriteIds);
+
+    this.favourites = this.favourites.filter(meal => meal.idMeal !== id);
   }
 
 }
