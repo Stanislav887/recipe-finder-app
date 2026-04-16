@@ -51,8 +51,12 @@ export class DetailsPage implements OnInit {
     this.returnUrl =
       this.route.snapshot.queryParamMap.get('returnUrl') || '/home';
 
-    this.http.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`).subscribe((data: any) => {
+    this.http.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`).subscribe(async (data: any) => {
+
       this.meal = data.meals[0];
+
+      const favourites = await this.storage.get('favourites') || [];
+      this.isFavourite = favourites.includes(this.meal.idMeal);
 
       this.ingredients = [];
 
