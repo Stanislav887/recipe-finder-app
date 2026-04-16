@@ -56,9 +56,13 @@
       </ion-button>
 
       <ion-button expand="block" (click)="toggleFavourite()">
-      <ion-icon slot="start" [name]="isFavourite ? 'heart' : 'heart-outline'"></ion-icon>
+        <ion-icon slot="start" [name]="isFavourite ? 'heart' : 'heart-outline'"></ion-icon>
         {{ isFavourite ? 'Remove from Favourites' : 'Add to Favourites' }}
       </ion-button>
+
+      <p *ngIf="message" class="message">
+        {{ message }}
+      </p>
 
 
     </ion-card-content>
