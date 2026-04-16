@@ -26,8 +26,11 @@ export class DetailsPage implements OnInit {
 
   isExpanded: boolean = false;
   isIngredientsOpen: boolean = true;
+
   fullInstructions: string = '';
   shortInstructions: string = '';
+
+  isFavourite: boolean = false;
 
   returnUrl: string = '/home';
 
@@ -67,17 +70,27 @@ export class DetailsPage implements OnInit {
     });
   }
 
-  async addToFavorites() {
-    let favorites = await this.storage.get('favourites');
+  async toggleFavourite() {
+    let favourites = await this.storage.get('favourites') || [];
 
-    if (!favorites) {
-      favorites = [];
+    let message = '';
+
+    if (favourites.includes(this.meal.idMeal)) {
+      favourites = favourites.filter((id: string) => id !== this.meal.idMeal);
+      this.isFavourite = false;
+      message = 'Removed from favourites 💔';
+    } else {
+      favourites.push(this.meal.idMeal);
+      this.isFavourite = true;
+      message = 'Added to favourites ❤️';
     }
 
-    if (!favorites.includes(this.meal.idMeal)) {
-      favorites.push(this.meal.idMeal);
-      await this.storage.set('favourites', favorites);
-    }
+    await this.storage.set('favourites', favourites);
+
+    await Toast.show({
+      text: message,
+      duration: 'short',
+    });
   }
 
 }
