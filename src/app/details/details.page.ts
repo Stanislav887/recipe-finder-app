@@ -7,7 +7,7 @@ import { Storage } from '@ionic/storage-angular';
 import { IonList, IonItem, IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { IonButtons, IonBackButton, IonLabel, IonButton, IonIcon, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { restaurantOutline, listOutline, chevronUpOutline, chevronDownOutline } from 'ionicons/icons';
+import { heartOutline, restaurantOutline, listOutline, chevronUpOutline, chevronDownOutline } from 'ionicons/icons';
 import { Toast } from '@capacitor/toast';
 
 
@@ -39,7 +39,8 @@ export class DetailsPage implements OnInit {
       'restaurant-outline': restaurantOutline,
       'list-outline': listOutline,
       'chevron-up-outline': chevronUpOutline,
-      'chevron-down-outline': chevronDownOutline
+      'chevron-down-outline': chevronDownOutline,
+      'heart-outline': heartOutline
     });
   }
 
