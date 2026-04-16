@@ -8,7 +8,6 @@ import { IonList, IonItem, IonContent, IonHeader, IonTitle, IonToolbar } from '@
 import { IonButtons, IonBackButton, IonLabel, IonButton, IonIcon, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { heartOutline, restaurantOutline, listOutline, chevronUpOutline, chevronDownOutline } from 'ionicons/icons';
-import { Toast } from '@capacitor/toast';
 
 
 
@@ -31,6 +30,8 @@ export class DetailsPage implements OnInit {
   shortInstructions: string = '';
 
   isFavourite: boolean = false;
+
+  message: string = '';
 
   returnUrl: string = '/home';
 
@@ -92,10 +93,8 @@ export class DetailsPage implements OnInit {
 
     await this.storage.set('favourites', favourites);
 
-    await Toast.show({
-      text: message,
-      duration: 'short',
-    });
+    this.message = message;
+
   }
 
 }
