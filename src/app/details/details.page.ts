@@ -8,6 +8,7 @@ import { IonList, IonItem, IonContent, IonHeader, IonTitle, IonToolbar } from '@
 import { IonButtons, IonBackButton, IonLabel, IonButton, IonIcon, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { restaurantOutline, listOutline, chevronUpOutline, chevronDownOutline } from 'ionicons/icons';
+import { Toast } from '@capacitor/toast';
 
 
 
@@ -67,7 +68,7 @@ export class DetailsPage implements OnInit {
   }
 
   async addToFavorites() {
-    let favorites = await this.storage.get('favorites');
+    let favorites = await this.storage.get('favourites');
 
     if (!favorites) {
       favorites = [];
@@ -75,7 +76,7 @@ export class DetailsPage implements OnInit {
 
     if (!favorites.includes(this.meal.idMeal)) {
       favorites.push(this.meal.idMeal);
-      await this.storage.set('favorites', favorites);
+      await this.storage.set('favourites', favorites);
     }
   }
 

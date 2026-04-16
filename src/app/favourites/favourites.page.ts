@@ -21,11 +21,11 @@ export class FavouritesPage implements OnInit {
   async ngOnInit() {
     await this.storage.create();
 
-    const favoriteIds = await this.storage.get('favorites') || [];
+    const favouriteIds = await this.storage.get('favourites') || [];
 
     this.favourites = [];
 
-    for (const id of favoriteIds) {
+    for (const id of favouriteIds) {
       this.recipeService.getMealById(id).subscribe((data: any) => {
         this.favourites.push(data.meals[0]);
       });
