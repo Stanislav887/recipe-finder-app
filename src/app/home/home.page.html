@@ -39,7 +39,7 @@
 
   <ion-card button routerLink="/beef">
 
-    <img src="https://www.themealdb.com/images/category/beef.png" />
+    <img *ngIf="showImages" src="https://www.themealdb.com/images/category/beef.png" />
 
     <ion-card-header>
       <ion-card-title>🥩 Beef Recipes</ion-card-title>
@@ -51,7 +51,7 @@
 
   <ion-card button routerLink="/seafood">
 
-    <img src="https://www.themealdb.com/images/category/seafood.png" />
+    <img *ngIf="showImages" src="https://www.themealdb.com/images/category/seafood.png" />
 
     <ion-card-header>
       <ion-card-title>🐟 Seafood Recipes</ion-card-title>
@@ -63,7 +63,7 @@
 
   <ion-card button routerLink="/favourites">
 
-    <img src="https://www.themealdb.com/images/media/meals/58oia61564916529.jpg" />
+    <img *ngIf="showImages" src="https://www.themealdb.com/images/media/meals/58oia61564916529.jpg" />
 
     <ion-card-header>
       <ion-card-title>⭐ Favorites</ion-card-title>
