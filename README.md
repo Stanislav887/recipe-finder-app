@@ -6,6 +6,15 @@ An Ionic recipe browsing application built using **Ionic Angular** and the **The
 
 ---
 
+## ▶️ Installation
+
+```bash
+git clone https://github.com/Stanislav887/recipe-finder-app.git
+cd recipe-finder-app
+npm install
+ionic serve
+```
+
 ## 📱 Features
 
 ### 🍗 Categories
