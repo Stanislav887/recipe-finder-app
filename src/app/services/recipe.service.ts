@@ -9,12 +9,6 @@ export class RecipeService {
 
   constructor(private http: HttpClient) { }
 
-  searchRecipes(ingredient: string): Observable<any> {
-    return this.http.get(
-      `https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`
-    );
-  }
-
   getMealsByCategory(category: string): Observable<any> {
     return this.http.get(
       `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`

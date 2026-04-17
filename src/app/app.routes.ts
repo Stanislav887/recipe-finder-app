@@ -11,10 +11,6 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'results/:ingredient',
-    loadComponent: () => import('./results/results.page').then( m => m.ResultsPage)
-  },
-  {
     path: 'chicken',
     loadComponent: () => import('./chicken/chicken.page').then( m => m.ChickenPage)
   },
@@ -33,5 +29,9 @@ export const routes: Routes = [
   {
     path: 'favourites',
     loadComponent: () => import('./favourites/favourites.page').then( m => m.FavouritesPage)
+  },
+  {
+    path: 'settings',
+    loadComponent: () => import('./settings/settings.page').then( m => m.SettingsPage)
   },
 ];
