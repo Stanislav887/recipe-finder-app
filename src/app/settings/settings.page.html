@@ -5,15 +5,21 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-item>
-    <ion-label>
-      <h2>Device Information</h2>
-      <p>Platform: {{ deviceInfo?.platform }}</p>
-      <p>OS: {{ deviceInfo?.operatingSystem }}</p>
-      <p>Version: {{ deviceInfo?.osVersion }}</p>
-      <p>Model: {{ deviceInfo?.model }}</p>
-    </ion-label>
-  </ion-item>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>📱 Device Information</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <p>📍 <strong>Platform:</strong> {{ deviceInfo?.platform }}</p>
+      <p><strong>Operating System:</strong> {{ deviceInfo?.operatingSystem }}</p>
+      <p><strong>OS Version:</strong> {{ deviceInfo?.osVersion }}</p>
+      <p><strong>Model:</strong> {{ deviceInfo?.model }}</p>
+
+    </ion-card-content>
+
+  </ion-card>
 
   <ion-button expand="block" (click)="getDeviceInfo()">
     Refresh Device Info
