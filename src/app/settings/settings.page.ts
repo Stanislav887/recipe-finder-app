@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Device } from '@capacitor/device';
 import { IonItem, IonLabel, IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
-import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-settings',
@@ -13,19 +13,23 @@ import { Storage } from '@ionic/storage-angular';
 })
 export class SettingsPage implements OnInit {
 
-  showImages: boolean = true;
+  deviceInfo: any;
 
-  constructor(private storage: Storage) { }
+  constructor() { }
 
-  async toggleChanged() {
-    await this.storage.set('showImages', this.showImages);
+  async getDeviceInfo() {
+    this.deviceInfo = await Device.getInfo();
   }
 
   async ionViewWillEnter() {
-    await this.storage.create();
-    this.showImages = await this.storage.get('showImages') ?? true;
+    await this.getDeviceInfo();
   }
-  ngOnInit() {
+
+  async ngOnInit() {
   }
+
+
+
+
 
 }
