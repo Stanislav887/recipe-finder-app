@@ -3,7 +3,6 @@
     padding: 16px;
 }
 
-/* Header section */
 .profile-header {
     text-align: center;
     margin-top: 20px;
@@ -34,13 +33,11 @@
     font-size: 13px;
 }
 
-/* Card styling */
 .profile-card {
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-/* Info rows */
 .info-row {
     display: flex;
     justify-content: space-between;
@@ -53,9 +50,14 @@
     border-bottom: none;
 }
 
-/* Button */
 .refresh-btn {
     margin-top: 20px;
     --border-radius: 12px;
     font-weight: bold;
+}
+
+.back-btn {
+    --color: white;
+    --icon-font-size: 22px;
+    font-weight: 500;
 }

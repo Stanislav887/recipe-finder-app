@@ -1,12 +1,17 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="primary">
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text="Back" class="back-btn">
+      </ion-back-button>
+    </ion-buttons>
+    
     <ion-title>👤 My Profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="profile-content">
 
-  <!-- Profile Header -->
   <div class="profile-header">
 
     <div class="avatar">
@@ -18,7 +23,6 @@
 
   </div>
 
-  <!-- Device Info Card -->
   <ion-card class="profile-card">
 
     <ion-card-content>
@@ -47,7 +51,6 @@
 
   </ion-card>
 
-  <!-- Refresh Button -->
   <ion-button expand="block" class="refresh-btn" (click)="getDeviceInfo()">
     🔄 Refresh Device Info
   </ion-button>
