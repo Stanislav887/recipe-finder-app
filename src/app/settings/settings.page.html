@@ -6,6 +6,12 @@
 
 <ion-content [fullscreen]="true">
   <ion-item>
-    <ion-label>Show Images</ion-label>
+    <ion-label>
+      <h2>Device Information</h2>
+      <p>Platform: {{ deviceInfo?.platform }}</p>
+      <p>OS: {{ deviceInfo?.operatingSystem }}</p>
+      <p>Version: {{ deviceInfo?.osVersion }}</p>
+      <p>Model: {{ deviceInfo?.model }}</p>
+    </ion-label>
   </ion-item>
 </ion-content>
