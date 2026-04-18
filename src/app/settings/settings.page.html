@@ -1,27 +1,55 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>⚙️ Settings</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>👤 My Profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>📱 Device Information</ion-card-title>
-    </ion-card-header>
+<ion-content class="profile-content">
+
+  <!-- Profile Header -->
+  <div class="profile-header">
+
+    <div class="avatar">
+      📱
+    </div>
+
+    <h2>Device Profile</h2>
+    <p class="subtitle">Powered by Capacitor Device Plugin</p>
+
+  </div>
+
+  <!-- Device Info Card -->
+  <ion-card class="profile-card">
 
     <ion-card-content>
 
-      <p>📍 <strong>Platform:</strong> {{ deviceInfo?.platform }}</p>
-      <p><strong>Operating System:</strong> {{ deviceInfo?.operatingSystem }}</p>
-      <p><strong>OS Version:</strong> {{ deviceInfo?.osVersion }}</p>
-      <p><strong>Model:</strong> {{ deviceInfo?.model }}</p>
+      <div class="info-row">
+        <span>📍 Platform</span>
+        <span>{{ deviceInfo?.platform }}</span>
+      </div>
+
+      <div class="info-row">
+        <span>💻 OS</span>
+        <span>{{ deviceInfo?.operatingSystem }}</span>
+      </div>
+
+      <div class="info-row">
+        <span>🔢 Version</span>
+        <span>{{ deviceInfo?.osVersion }}</span>
+      </div>
+
+      <div class="info-row">
+        <span>📱 Model</span>
+        <span>{{ deviceInfo?.model }}</span>
+      </div>
 
     </ion-card-content>
 
   </ion-card>
 
-  <ion-button expand="block" (click)="getDeviceInfo()">
-    Refresh Device Info
+  <!-- Refresh Button -->
+  <ion-button expand="block" class="refresh-btn" (click)="getDeviceInfo()">
+    🔄 Refresh Device Info
   </ion-button>
+
 </ion-content>

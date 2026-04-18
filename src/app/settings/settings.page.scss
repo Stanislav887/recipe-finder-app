@@ -1,0 +1,61 @@
+.profile-content {
+    --background: #f5f7fb;
+    padding: 16px;
+}
+
+/* Header section */
+.profile-header {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.avatar {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: white;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.profile-header h2 {
+    margin-top: 10px;
+    font-size: 22px;
+}
+
+.subtitle {
+    color: gray;
+    font-size: 13px;
+}
+
+/* Card styling */
+.profile-card {
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Info rows */
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+/* Button */
+.refresh-btn {
+    margin-top: 20px;
+    --border-radius: 12px;
+    font-weight: bold;
+}
