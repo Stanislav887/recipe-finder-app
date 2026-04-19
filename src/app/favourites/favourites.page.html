@@ -12,12 +12,15 @@
 
 <ion-content class="favourites-content">
 
-  <div *ngIf="favourites.length === 0" class="empty-state">
+  @if (favourites.length === 0) {
+  <div class="empty-state">
     <h2>😢 No favourites yet</h2>
     <p>Add recipes to see them here</p>
   </div>
+  }
 
-  <ion-card *ngFor="let meal of favourites" class="fav-card">
+  @for (meal of favourites; track meal.idMeal) {
+  <ion-card class="fav-card">
 
     <img [src]="meal.strMealThumb" />
 
@@ -35,5 +38,6 @@
     </ion-card-content>
 
   </ion-card>
+  }
 
 </ion-content>
