@@ -1,27 +1,38 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
+
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home"></ion-back-button>
+      <ion-back-button defaultHref="/home" text="Back"></ion-back-button>
     </ion-buttons>
-    <ion-title>Favourites</ion-title>
+
+    <ion-title>⭐ Your Favourites</ion-title>
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="favourites-content">
 
-  <ion-card *ngFor="let meal of favourites">
+  <div *ngIf="favourites.length === 0" class="empty-state">
+    <h2>😢 No favourites yet</h2>
+    <p>Add recipes to see them here</p>
+  </div>
+
+  <ion-card *ngFor="let meal of favourites" class="fav-card">
 
     <img [src]="meal.strMealThumb" />
 
     <ion-card-header>
-      <ion-card-title>
-        {{ meal.strMeal }}
-      </ion-card-title>
+      <ion-card-title>{{ meal.strMeal }}</ion-card-title>
+      <ion-card-subtitle>{{ meal.strCategory }}</ion-card-subtitle>
     </ion-card-header>
 
-    <ion-button fill="outline" size="small" color="danger" (click)="removeFromFavourites(meal.idMeal)">
-      ❌ Remove
-    </ion-button>
+    <ion-card-content>
+
+      <ion-button expand="block" color="danger" (click)="removeFromFavourites(meal.idMeal)">
+        ❌ Remove
+      </ion-button>
+
+    </ion-card-content>
 
   </ion-card>
 
