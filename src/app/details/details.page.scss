@@ -1,35 +1,36 @@
 .details-content {
-  --background: #f5f7fb;
-  padding: 16px;
+    --background: #f5f7fb;
+    padding: 16px;
 }
 
 .details-card {
-  border-radius: 16px;
-  margin-bottom: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  overflow: hidden;
+    border-radius: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
 }
 
 .details-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
 }
 
 .ingredient {
-  margin: 6px 0;
-  font-size: 14px;
-  color: #333;
+    margin: 6px 0;
+    font-size: 14px;
+    color: #333;
 }
 
 .instructions {
-  font-size: 14px;
-  line-height: 1.5;
-  color: #444;
+    text-align: justify;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #444;
 }
 
 .fav-btn {
-  margin-top: 10px;
-  --border-radius: 12px;
-  font-weight: bold;
+    margin-top: 10px;
+    --border-radius: 12px;
+    font-weight: bold;
 }

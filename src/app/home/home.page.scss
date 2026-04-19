@@ -4,17 +4,22 @@ img {
   object-fit: cover;
 }
 
+ion-content {
+  --background: linear-gradient(180deg, #f6f8fc 0%, #eef2f7 100%);
+  padding: 16px;
+}
+
 ion-card {
-  margin: 16px;
-  border-radius: 20px;
+  margin-bottom: 16px;
+  border-radius: 16px;
   overflow: hidden;
   background: #fff;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease;
 }
 
-ion-card:hover {
-  transform: scale(1.02);
+ion-card:active {
+  transform: scale(0.98);
 }
 
 ion-card-title {
@@ -26,8 +31,4 @@ ion-card-title {
 ion-card-subtitle {
   font-size: 13px;
   color: #666;
-}
-
-ion-content {
-  --background: linear-gradient(180deg, #f6f8fc 0%, #eef2f7 100%);
 }
