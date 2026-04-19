@@ -1,73 +1,62 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="light">
+  <ion-toolbar color="primary">
 
     <ion-buttons slot="start">
       <ion-back-button [defaultHref]="returnUrl"></ion-back-button>
     </ion-buttons>
 
     <ion-title>{{ meal?.strMeal }}</ion-title>
+
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="details-content">
 
-  <ion-card>
+  <ion-card class="details-card">
 
     <img [src]="meal?.strMealThumb" />
 
     <ion-card-header>
       <ion-card-title>{{ meal?.strMeal }}</ion-card-title>
-      <ion-card-subtitle color="medium">
-        {{ meal?.strCategory }} • {{ meal?.strArea }}
-      </ion-card-subtitle>
+      <ion-card-subtitle>{{ meal?.strCategory }}</ion-card-subtitle>
+    </ion-card-header>
+
+  </ion-card>
+
+  <ion-card class="details-card">
+
+    <ion-card-header>
+      <ion-card-title>🧾 Ingredients</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
 
-      <ion-item button (click)="isIngredientsOpen = !isIngredientsOpen">
-        <ion-icon name="restaurant-outline" slot="start"></ion-icon>
-
-        <ion-label>Ingredients</ion-label>
-
-        <ion-icon slot="end" [name]="isIngredientsOpen ? 'chevron-up-outline' : 'chevron-down-outline'">
-        </ion-icon>
-      </ion-item>
-
-      <div *ngIf="isIngredientsOpen">
-        <ion-list>
-          <ion-item *ngFor="let item of ingredients">
-            {{ item }}
-          </ion-item>
-        </ion-list>
-      </div>
-
-      <h3>
-        <ion-icon name="list-outline" color="success"></ion-icon>
-        Instructions
-      </h3>
-
-      <p class="instructions-text">
-        {{ isExpanded ? fullInstructions : shortInstructions }}
-        {{ !isExpanded ? '...' : '' }}
-      </p>
-
-      <ion-button fill="clear" size="small" (click)="isExpanded = !isExpanded">
-        {{ isExpanded ? 'Read less' : 'Read more' }}
-      </ion-button>
-
-      <ion-button expand="block" (click)="toggleFavourite()">
-        <ion-icon slot="start" [name]="isFavourite ? 'heart' : 'heart-outline'"></ion-icon>
-        {{ isFavourite ? 'Remove from Favourites' : 'Add to Favourites' }}
-      </ion-button>
-
-      <p *ngIf="message" class="message">
-        {{ message }}
-      </p>
-
+      @for (ing of ingredients; track ing) {
+      <p class="ingredient">{{ ing }}</p>
+      }
 
     </ion-card-content>
 
   </ion-card>
+
+  <ion-card class="details-card">
+
+    <ion-card-header>
+      <ion-card-title>📖 Instructions</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <p class="instructions">{{ fullInstructions }}</p>
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-button expand="block" class="fav-btn" (click)="toggleFavourite()">
+    <ion-icon slot="start" [name]="isFavourite ? 'heart' : 'heart-outline'"></ion-icon>
+    {{ isFavourite ? 'Remove from Favourites' : 'Add to Favourites' }}
+  </ion-button>
+
+
 
 
 </ion-content>
