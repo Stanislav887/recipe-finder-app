@@ -58,7 +58,21 @@
     </ion-card-header>
 
     <ion-card-content>
-      <p class="instructions">{{ fullInstructions }}</p>
+      @if (isInstructionsVisible) {
+      <ion-button fill="outline" size="small" (click)="toggleInstructions()">
+        Hide Instructions
+      </ion-button>
+      } @else {
+      <ion-button fill="outline" size="small" (click)="toggleInstructions()">
+        Show Instructions
+      </ion-button>
+      }
+
+      @if (isInstructionsVisible) {
+      <p class="instructions">
+        {{ fullInstructions }}
+      </p>
+      }
     </ion-card-content>
 
   </ion-card>

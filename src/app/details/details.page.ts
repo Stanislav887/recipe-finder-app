@@ -21,7 +21,7 @@ export class DetailsPage implements OnInit {
   ingredients: any[] = [];
 
   isIngredientsVisible: boolean = true;
-  isInstructionsVisible: boolean = false;
+  isInstructionsVisible: boolean = true;
 
   fullInstructions: string = '';
 
