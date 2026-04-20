@@ -21,6 +21,7 @@ export class DetailsPage implements OnInit {
   ingredients: any[] = [];
 
   isIngredientsVisible: boolean = true;
+  isInstructionsVisible: boolean = false;
 
   fullInstructions: string = '';
 
@@ -28,7 +29,7 @@ export class DetailsPage implements OnInit {
 
   returnUrl: string = '/home';
 
-  constructor(private route: ActivatedRoute, private http: HttpClient, private storage: Storage) {}
+  constructor(private route: ActivatedRoute, private http: HttpClient, private storage: Storage) { }
 
   async ngOnInit() {
     await this.storage.create();
@@ -62,6 +63,10 @@ export class DetailsPage implements OnInit {
 
   toggleIngredients() {
     this.isIngredientsVisible = !this.isIngredientsVisible;
+  }
+
+  toggleInstructions() {
+    this.isInstructionsVisible = !this.isInstructionsVisible;
   }
 
   async toggleFavourite() {
