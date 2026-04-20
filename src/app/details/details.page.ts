@@ -24,7 +24,7 @@ export class DetailsPage implements OnInit {
   ingredients: any[] = [];
 
   isExpanded: boolean = false;
-  isIngredientsOpen: boolean = true;
+  isIngredientsVisible: boolean = true;
 
   fullInstructions: string = '';
   shortInstructions: string = '';
@@ -37,10 +37,6 @@ export class DetailsPage implements OnInit {
 
   constructor(private route: ActivatedRoute, private http: HttpClient, private storage: Storage) {
     addIcons({
-      'restaurant-outline': restaurantOutline,
-      'list-outline': listOutline,
-      'chevron-up-outline': chevronUpOutline,
-      'chevron-down-outline': chevronDownOutline,
       'heart-outline': heartOutline
     });
   }
@@ -74,6 +70,10 @@ export class DetailsPage implements OnInit {
       this.fullInstructions = this.meal.strInstructions;
       this.shortInstructions = this.meal.strInstructions.substring(0, 150);
     });
+  }
+
+  toggleIngredients() {
+    this.isIngredientsVisible = !this.isIngredientsVisible;
   }
 
   async toggleFavourite() {
