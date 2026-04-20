@@ -5,10 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
 import { Storage } from '@ionic/storage-angular';
 import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
-import { IonButtons, IonBackButton, IonButton, IonIcon, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent } from '@ionic/angular/standalone';
-import { addIcons } from 'ionicons';
-import { heartOutline, restaurantOutline, listOutline, chevronUpOutline, chevronDownOutline } from 'ionicons/icons';
-
+import { IonButtons, IonBackButton, IonButton, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent } from '@ionic/angular/standalone';
 
 
 @Component({
@@ -16,30 +13,22 @@ import { heartOutline, restaurantOutline, listOutline, chevronUpOutline, chevron
   templateUrl: './details.page.html',
   styleUrls: ['./details.page.scss'],
   standalone: true,
-  imports: [IonButtons, IonBackButton, IonButton, IonIcon, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
+  imports: [IonButtons, IonBackButton, IonButton, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonContent, IonHeader, IonTitle, IonToolbar, CommonModule, FormsModule]
 })
 export class DetailsPage implements OnInit {
 
   meal: any;
   ingredients: any[] = [];
 
-  isExpanded: boolean = false;
   isIngredientsVisible: boolean = true;
 
   fullInstructions: string = '';
-  shortInstructions: string = '';
 
   isFavourite: boolean = false;
 
-  message: string = '';
-
   returnUrl: string = '/home';
 
-  constructor(private route: ActivatedRoute, private http: HttpClient, private storage: Storage) {
-    addIcons({
-      'heart-outline': heartOutline
-    });
-  }
+  constructor(private route: ActivatedRoute, private http: HttpClient, private storage: Storage) {}
 
   async ngOnInit() {
     await this.storage.create();
@@ -68,7 +57,6 @@ export class DetailsPage implements OnInit {
       }
 
       this.fullInstructions = this.meal.strInstructions;
-      this.shortInstructions = this.meal.strInstructions.substring(0, 150);
     });
   }
 
@@ -92,8 +80,6 @@ export class DetailsPage implements OnInit {
     }
 
     await this.storage.set('favourites', favourites);
-
-    this.message = message;
 
   }
 
