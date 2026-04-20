@@ -31,8 +31,20 @@
 
     <ion-card-content>
 
+      @if (isIngredientsVisible) {
+      <ion-button fill="outline" size="small" (click)="toggleIngredients()">
+        Hide Ingredients
+      </ion-button>
+      } @else {
+      <ion-button fill="outline" size="small" (click)="toggleIngredients()">
+        Show Ingredients
+      </ion-button>
+      }
+
+      @if (isIngredientsVisible) {
       @for (ing of ingredients; track ing) {
       <p class="ingredient">{{ ing }}</p>
+      }
       }
 
     </ion-card-content>
