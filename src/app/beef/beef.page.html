@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar color="light">
+  <ion-toolbar color="primary">
 
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home"></ion-back-button>
@@ -9,16 +9,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="beef-content">
 
-  <ion-card *ngFor="let recipe of recipes" (click)="openDetails(recipe.idMeal)">
+  <ion-card class="item-card" *ngFor="let recipe of recipes" (click)="openDetails(recipe.idMeal)">
 
     <img [src]="recipe.strMealThumb" />
 
     <ion-card-header>
-      <ion-card-title>
-        {{ recipe.strMeal }}
-      </ion-card-title>
+      <ion-card-title>{{ recipe.strMeal }}</ion-card-title>
 
       <ion-card-subtitle color="medium">
         Tap to view details
