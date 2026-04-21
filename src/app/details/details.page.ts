@@ -24,41 +24,50 @@ export class DetailsPage implements OnInit {
   isInstructionsVisible: boolean = false;
 
   fullInstructions: string = '';
-
   isFavourite: boolean = false;
 
   returnUrl: string = '/home';
 
   constructor(private route: ActivatedRoute, private http: HttpClient, private storage: Storage) { }
 
-  async ngOnInit() {
-    await this.storage.create();
+  async ngOnInit() { }
 
+  async ionViewWillEnter() {
+    await this.storage.create();
+    this.loadMeal();
+  }
+
+  loadMeal() {
     const id = this.route.snapshot.params['id'];
 
     this.returnUrl =
       this.route.snapshot.queryParamMap.get('returnUrl') || '/home';
 
-    this.http.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`).subscribe(async (data: any) => {
+    this.http.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
+      .subscribe(async (data: any) => {
 
-      this.meal = data.meals[0];
+        this.meal = data.meals[0];
 
-      const favourites = await this.storage.get('favourites') || [];
-      this.isFavourite = favourites.includes(this.meal.idMeal);
+        const favourites = await this.storage.get('favourites') || [];
+        this.isFavourite = favourites.includes(this.meal.idMeal);
 
-      this.ingredients = [];
+        this.extractIngredients();
 
-      for (let i = 1; i <= 20; i++) {
-        const ing = this.meal['strIngredient' + i];
-        const meas = this.meal['strMeasure' + i];
+        this.fullInstructions = this.meal.strInstructions;
+      });
+  }
 
-        if (ing) {
-          this.ingredients.push(meas + ' ' + ing);
-        }
+  extractIngredients() {
+    this.ingredients = [];
+
+    for (let i = 1; i <= 20; i++) {
+      const ing = this.meal['strIngredient' + i];
+      const meas = this.meal['strMeasure' + i];
+
+      if (ing) {
+        this.ingredients.push(`${meas} ${ing}`);
       }
-
-      this.fullInstructions = this.meal.strInstructions;
-    });
+    }
   }
 
   toggleIngredients() {
@@ -70,7 +79,7 @@ export class DetailsPage implements OnInit {
   }
 
   getShortInstructions(): string {
-    return this.fullInstructions?.substring(0, 150) || '';
+    return this.fullInstructions?.substring(0, 200) || '';
   }
 
   async toggleFavourite() {
