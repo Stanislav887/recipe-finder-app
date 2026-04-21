@@ -21,7 +21,7 @@ export class DetailsPage implements OnInit {
   ingredients: any[] = [];
 
   isIngredientsVisible: boolean = true;
-  isInstructionsVisible: boolean = true;
+  isInstructionsVisible: boolean = false;
 
   fullInstructions: string = '';
 
@@ -67,6 +67,10 @@ export class DetailsPage implements OnInit {
 
   toggleInstructions() {
     this.isInstructionsVisible = !this.isInstructionsVisible;
+  }
+
+  getShortInstructions(): string {
+    return this.fullInstructions?.substring(0, 150) || '';
   }
 
   async toggleFavourite() {

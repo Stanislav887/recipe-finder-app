@@ -72,6 +72,10 @@
       <p class="instructions">
         {{ fullInstructions }}
       </p>
+      } @else {
+      <p class="instructions">
+        {{ getShortInstructions() + '...' }}
+      </p>
       }
     </ion-card-content>
 
