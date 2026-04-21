@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { RecipeService } from '../services/recipe.service';
 import { ActivatedRoute } from '@angular/router';
 import { Storage } from '@ionic/storage-angular';
 import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
@@ -28,7 +28,7 @@ export class DetailsPage implements OnInit {
 
   returnUrl: string = '/home';
 
-  constructor(private route: ActivatedRoute, private http: HttpClient, private storage: Storage) { }
+  constructor(private route: ActivatedRoute, private recipeService: RecipeService, private storage: Storage) { }
 
   async ngOnInit() { }
 
@@ -40,11 +40,9 @@ export class DetailsPage implements OnInit {
   loadMeal() {
     const id = this.route.snapshot.params['id'];
 
-    this.returnUrl =
-      this.route.snapshot.queryParamMap.get('returnUrl') || '/home';
+    this.returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/home';
 
-    this.http.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
-      .subscribe(async (data: any) => {
+    this.recipeService.getMealById(id).subscribe(async (data: any) => {
 
         this.meal = data.meals[0];
 
