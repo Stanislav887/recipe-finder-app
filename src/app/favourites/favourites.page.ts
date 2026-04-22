@@ -19,8 +19,15 @@ export class FavouritesPage implements OnInit {
   constructor(private storage: Storage, private recipeService: RecipeService) { }
 
   async ngOnInit() {
-    await this.storage.create();
 
+  }
+
+  async ionViewWillEnter() {
+    await this.storage.create();
+    this.loadFavourites();
+  }
+
+  async loadFavourites() {
     const favouriteIds = await this.storage.get('favourites') || [];
 
     this.favourites = [];
@@ -31,6 +38,7 @@ export class FavouritesPage implements OnInit {
       });
     }
   }
+
 
   async removeFromFavourites(id: string) {
     let favouriteIds = await this.storage.get('favourites') || [];
