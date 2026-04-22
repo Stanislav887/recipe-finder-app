@@ -19,9 +19,17 @@ export class BeefPage implements OnInit {
   constructor(private recipeService: RecipeService, private router: Router) { }
 
   ngOnInit() {
-    this.recipeService.getMealsByCategory('Beef').subscribe((data: any) => {
-      this.recipes = data.meals;
-    });
+    
+  }
+
+  ionViewWillEnter() {
+    this.loadRecipes();
+  }
+
+  loadRecipes() {
+    this.recipeService.getMealsByCategory('Beef').subscribe(({ meals }: any) => {
+        this.recipes = meals || [];
+      });
   }
 
   openDetails(id: string) {

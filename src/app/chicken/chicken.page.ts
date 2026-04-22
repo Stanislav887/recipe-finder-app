@@ -18,16 +18,16 @@ export class ChickenPage implements OnInit {
 
   constructor(private recipeService: RecipeService, private router: Router) { }
 
-  ngOnInit() { }
+  ngOnInit() { 
+    
+  }
 
   ionViewWillEnter() {
     this.loadRecipes();
   }
 
   loadRecipes() {
-    this.recipeService
-      .getMealsByCategory('Chicken')
-      .subscribe(({ meals }: any) => {
+    this.recipeService.getMealsByCategory('Chicken').subscribe(({ meals }: any) => {
         this.recipes = meals || [];
       });
   }
