@@ -11,7 +11,8 @@
 
 <ion-content class="seafood-content">
 
-  <ion-card class="item-card" *ngFor="let recipe of recipes" (click)="openDetails(recipe.idMeal)">
+  @for (recipe of recipes; track recipe.idMeal) {
+  <ion-card class="item-card" (click)="openDetails(recipe.idMeal)">
 
     <img [src]="recipe.strMealThumb" />
 
@@ -25,5 +26,6 @@
     </ion-card-header>
 
   </ion-card>
+  }
 
 </ion-content>
