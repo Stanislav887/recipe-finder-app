@@ -19,9 +19,16 @@ export class SeafoodPage implements OnInit {
   constructor(private recipeService: RecipeService, private router: Router) { }
 
   ngOnInit() {
-    this.recipeService.getMealsByCategory('Seafood').subscribe((data: any) => {
-      this.recipes = data.meals;
-      console.log(this.recipes);
+
+  }
+
+  ionViewWillEnter() {
+    this.loadRecipes();
+  }
+
+  loadRecipes() {
+    this.recipeService.getMealsByCategory('Seafood').subscribe(({ meals }: any) => {
+      this.recipes = meals || [];
     });
   }
 
