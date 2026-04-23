@@ -10,7 +10,8 @@ ion-content {
 }
 
 ion-card {
-  margin-bottom: 16px;
+  margin: 16px auto;
+  max-width: 420px;
   border-radius: 16px;
   overflow: hidden;
   background: #fff;
@@ -32,3 +33,6 @@ ion-card-subtitle {
   font-size: 13px;
   color: #666;
 }
+
+
+

@@ -27,8 +27,6 @@ export class DetailsPage implements OnInit {
   fullInstructions: string = '';
   isFavourite: boolean = false;
 
-  message: string = '';
-
   returnUrl: string = '/home';
 
   constructor(private route: ActivatedRoute, private recipeService: RecipeService, private storage: Storage, private toastController: ToastController) { }
