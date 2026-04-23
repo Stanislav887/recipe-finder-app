@@ -26,11 +26,15 @@ export class DetailsPage implements OnInit {
   fullInstructions: string = '';
   isFavourite: boolean = false;
 
+  message: string = '';
+
   returnUrl: string = '/home';
 
   constructor(private route: ActivatedRoute, private recipeService: RecipeService, private storage: Storage) { }
 
-  async ngOnInit() { }
+  async ngOnInit() {
+
+  }
 
   async ionViewWillEnter() {
     await this.storage.create();
@@ -44,15 +48,15 @@ export class DetailsPage implements OnInit {
 
     this.recipeService.getMealById(id).subscribe(async (data: any) => {
 
-        this.meal = data.meals[0];
+      this.meal = data.meals[0];
 
-        const favourites = await this.storage.get('favourites') || [];
-        this.isFavourite = favourites.includes(this.meal.idMeal);
+      const favourites = await this.storage.get('favourites') || [];
+      this.isFavourite = favourites.includes(this.meal.idMeal);
 
-        this.extractIngredients();
+      this.extractIngredients();
 
-        this.fullInstructions = this.meal.strInstructions;
-      });
+      this.fullInstructions = this.meal.strInstructions;
+    });
   }
 
   extractIngredients() {
@@ -88,14 +92,18 @@ export class DetailsPage implements OnInit {
     if (favourites.includes(this.meal.idMeal)) {
       favourites = favourites.filter((id: string) => id !== this.meal.idMeal);
       this.isFavourite = false;
-      message = 'Removed from favourites 💔';
+      this.message = 'Removed from favourites ❤️';
     } else {
       favourites.push(this.meal.idMeal);
       this.isFavourite = true;
-      message = 'Added to favourites ❤️';
+      this.message = 'Added to favourites ❤️';
     }
 
     await this.storage.set('favourites', favourites);
+
+    setTimeout(() => {
+      this.message = '';
+    }, 2000);
 
   }
 

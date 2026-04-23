@@ -85,4 +85,8 @@
     {{ isFavourite ? '❤️ Remove from Favourites' : '🤍 Add to Favourites' }}
   </ion-button>
 
+  @if (message) {
+  <p class="feedback">{{ message }}</p>
+  }
+
 </ion-content>
