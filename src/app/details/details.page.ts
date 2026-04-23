@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RecipeService } from '../services/recipe.service';
 import { ActivatedRoute } from '@angular/router';
 import { Storage } from '@ionic/storage-angular';
+import { ToastController } from '@ionic/angular';
 import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
 import { IonButtons, IonBackButton, IonButton, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent } from '@ionic/angular/standalone';
 
@@ -30,7 +31,7 @@ export class DetailsPage implements OnInit {
 
   returnUrl: string = '/home';
 
-  constructor(private route: ActivatedRoute, private recipeService: RecipeService, private storage: Storage) { }
+  constructor(private route: ActivatedRoute, private recipeService: RecipeService, private storage: Storage, private toastController: ToastController) { }
 
   async ngOnInit() {
 
@@ -84,26 +85,31 @@ export class DetailsPage implements OnInit {
     return this.fullInstructions?.substring(0, 200) || '';
   }
 
+  async showToast(message: string, color: string = 'success') {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 2000,
+      position: 'bottom',
+      color
+    });
+
+    await toast.present();
+  }
+
   async toggleFavourite() {
     let favourites = await this.storage.get('favourites') || [];
-
-    let message = '';
 
     if (favourites.includes(this.meal.idMeal)) {
       favourites = favourites.filter((id: string) => id !== this.meal.idMeal);
       this.isFavourite = false;
-      this.message = 'Removed from favourites ❤️';
+      await this.showToast('Removed from favourites 💔', 'danger');
     } else {
       favourites.push(this.meal.idMeal);
       this.isFavourite = true;
-      this.message = 'Added to favourites ❤️';
+      await this.showToast('Added to favourites ❤️', 'success');
     }
 
     await this.storage.set('favourites', favourites);
-
-    setTimeout(() => {
-      this.message = '';
-    }, 2000);
 
   }
 
