@@ -1,32 +1,40 @@
 .favourites-content {
-    --background: #f5f7fb;
+    --background: linear-gradient(180deg, #f6f8fc, #eef2f7);
     padding: 16px;
 }
 
-.empty-state {
-    text-align: center;
-    margin-top: 50px;
-    color: gray;
-}
-
-.empty-state h2 {
-    font-size: 20px;
-}
-
-.fav-card {
+.item-card {
+    margin: 16px auto;
+    max-width: 420px;
     border-radius: 16px;
-    margin-bottom: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     overflow: hidden;
+    background: #fff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
 }
 
-.fav-card img {
+.item-card:hover {
+    transform: scale(1.02);
+}
+
+.item-card:active {
+    transform: scale(0.98);
+}
+
+.item-card img {
     width: 100%;
     height: 180px;
     object-fit: cover;
+    display: block;
 }
 
 ion-card-title {
     font-size: 18px;
-    font-weight: bold;
+    font-weight: 700;
+    color: #222;
+}
+
+ion-card-subtitle {
+    font-size: 13px;
+    color: #666;
 }
