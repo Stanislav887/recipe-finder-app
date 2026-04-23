@@ -17,6 +17,10 @@
   transform: scale(1.02);
 }
 
+.item-card:active {
+  transform: scale(0.98);
+}
+
 .item-card img {
   width: 100%;
   height: 160px;
